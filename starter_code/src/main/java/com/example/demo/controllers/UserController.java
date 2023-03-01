@@ -36,6 +36,7 @@ public class UserController {
 
 	@GetMapping("/id/{id}")
 	public ResponseEntity<User> findById(@PathVariable Long id) {
+
 		return ResponseEntity.of(userRepository.findById(id));
 	}
 	
@@ -69,5 +70,7 @@ public class UserController {
 		userRepository.save(user);
 		return ResponseEntity.ok(user);
 	}
+
+
 	
 }
