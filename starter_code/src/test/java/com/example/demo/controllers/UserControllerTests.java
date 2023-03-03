@@ -11,9 +11,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.slf4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -21,21 +18,22 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(UserController.class)
 public class UserControllerTests {
 
-    @Autowired
+    @InjectMocks
     private UserController userController;
 
-    @MockBean
+    @Mock
     private UserRepository userRepository;
 
-    @MockBean
+    @Mock
     private CartRepository cartRepository;
 
-    @MockBean
+    @Mock
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Mock
@@ -52,18 +50,30 @@ public class UserControllerTests {
 
     @Test
     public void create_user_happy_path(){
-       CreateUserRequest createUserRequest= createUserRequest();
+       CreateUserRequest createUserRequest= createUserRequest("Betty","password","password");
        ResponseEntity<User> response= userController.createUser(createUserRequest);
         User user= response.getBody();
         assert user != null;
         assertEquals (createUserRequest.getUsername(),user.getUsername());
+        assertEquals(user.getPassword(),"Hashed password");
+        assertEquals(200,response.getStatusCodeValue());
+        verify(userRepository,times(1)).save(user);
     }
 
-    private CreateUserRequest createUserRequest(){
+    @Test
+    public void create_user_with_password_issues(){
+        CreateUserRequest createUserRequest= createUserRequest("BettyS","password1","confirmPassword");
+        ResponseEntity<User> response=userController.createUser(createUserRequest);
+        User user=response.getBody();
+        assertEquals(400,response.getStatusCodeValue());
+        verify(log,times(1)).error("Error creating password for user {} ",createUserRequest.getUsername());
+    }
+
+    private CreateUserRequest createUserRequest(String username, String password, String confirmPassword){
         CreateUserRequest createUserRequest=new CreateUserRequest();
-        createUserRequest.setUsername("Betty");
-        createUserRequest.setPassword("password");
-        createUserRequest.setConfirmPassword("password");
+        createUserRequest.setUsername(username);
+        createUserRequest.setPassword(password);
+        createUserRequest.setConfirmPassword(confirmPassword);
         return createUserRequest;
     }
 

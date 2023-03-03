@@ -55,7 +55,6 @@ public class UserController {
 		if(createUserRequest.getPassword().length()<7||!createUserRequest.getPassword().equals(createUserRequest.getConfirmPassword()))	{
 	//SLF4J API - Logging facade for Java, decouple application from underlying Logger
 			log.error("Error creating password for user {} ",createUserRequest.getUsername());
-			System.out.println("here");
 			return ResponseEntity.badRequest().build();
 		}
 
