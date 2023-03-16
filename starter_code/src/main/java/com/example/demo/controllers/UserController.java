@@ -1,8 +1,8 @@
 package com.example.demo.controllers;
 
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -29,7 +29,7 @@ public class UserController {
 	@Autowired
 	private CartRepository cartRepository;
 
-	private final Logger log= LoggerFactory.getLogger(UserController.class);
+	private final Logger log= LogManager.getLogger(UserController.class);
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -51,9 +51,16 @@ public class UserController {
 		user.setUsername(createUserRequest.getUsername());
 
 	//Password: requirements and validations
-		if(createUserRequest.getPassword().length()<7||!createUserRequest.getPassword().equals(createUserRequest.getConfirmPassword()))	{
+		if(createUserRequest.getPassword().length()<7)	{
 	//SLF4J API - Logging facade for Java, decouple application from underlying Logger
-			log.error("Error creating password for user {} ",createUserRequest.getUsername());
+			log.warn("Create user account failed - Password length less than seven for user {}",createUserRequest.getUsername());
+			log.error("Create user account failed for user {} ",createUserRequest.getUsername());
+			return ResponseEntity.badRequest().build();
+		}
+
+		if(!createUserRequest.getPassword().equals(createUserRequest.getConfirmPassword())){
+			log.warn("Create user account failed - Password does not match with confirm password for user {}",createUserRequest.getUsername());
+			log.error("Create user account failed for user {} ",createUserRequest.getUsername());
 			return ResponseEntity.badRequest().build();
 		}
 
@@ -66,6 +73,7 @@ public class UserController {
 		cartRepository.save(cart);
 		user.setCart(cart);
 		userRepository.save(user);
+		log.info("A user named {} is created successfully!",createUserRequest.getUsername());
 		return ResponseEntity.ok(user);
 	}
 

@@ -1,6 +1,9 @@
 package com.example.demo.security;
 
 import com.auth0.jwt.JWT;
+import com.example.demo.controllers.CartController;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,6 +26,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
         super(authManager);
     }
 
+    private final Logger logger= LogManager.getLogger(JWTAuthorizationFilter.class);
 
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
@@ -51,6 +55,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
             }
             return null;
         }
+        logger.error("Error JWT token missing");
         return null;
     }
 }

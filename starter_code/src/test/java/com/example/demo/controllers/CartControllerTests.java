@@ -54,7 +54,6 @@ public class CartControllerTests {
         given(itemRepository.findById(any())).willReturn(Optional.of(item));
         given(itemRepository.findById(2L)).willReturn(Optional.empty());
         given(cartRepository.save(any())).willReturn(cart);
-
     }
 
     @Test

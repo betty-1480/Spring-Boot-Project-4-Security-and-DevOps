@@ -51,7 +51,7 @@ public class User {
 		this.cart = cart;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

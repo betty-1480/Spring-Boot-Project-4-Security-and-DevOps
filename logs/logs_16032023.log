@@ -1,0 +1,46 @@
+2023-03-16 15:45:54,669 INFO c.e.d.ECommerceApplication [main] - Application started
+2023-03-16 15:45:55,806 INFO c.e.d.ECommerceApplication [main] - Starting ECommerceApplication on DESKTOP-BL75EAJ with PID 30404 (started by savio in C:\BETTY\UDACITY NANODEGREES\UDACITY - JAVA WEB DEVELOPMENT\Module_3_DataStores_and_Persistance\Spring-Boot-Project-4-Security-and-DevOps)
+2023-03-16 15:45:55,807 INFO c.e.d.ECommerceApplication [main] - No active profile set, falling back to default profiles: default
+2023-03-16 15:45:57,185 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] - Bootstrapping Spring Data repositories in DEFAULT mode.
+2023-03-16 15:45:57,307 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] - Finished Spring Data repository scanning in 107ms. Found 4 repository interfaces.
+2023-03-16 15:45:58,020 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$56864cd0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-03-16 15:46:01,730 INFO o.s.b.w.e.t.TomcatWebServer [main] - Tomcat initialized with port(s): 8085 (http)
+2023-03-16 15:46:02,075 INFO o.a.c.h.Http11NioProtocol [main] - Initializing ProtocolHandler ["http-nio-8085"]
+2023-03-16 15:46:02,115 INFO o.a.c.c.StandardService [main] - Starting service [Tomcat]
+2023-03-16 15:46:02,116 INFO o.a.c.c.StandardEngine [main] - Starting Servlet engine: [Apache Tomcat/9.0.19]
+2023-03-16 15:46:02,724 INFO o.a.c.c.C.[.[.[/] [main] - Initializing Spring embedded WebApplicationContext
+2023-03-16 15:46:02,724 INFO o.s.w.c.ContextLoader [main] - Root WebApplicationContext: initialization completed in 6574 ms
+2023-03-16 15:46:03,343 INFO c.z.h.HikariDataSource [main] - HikariPool-1 - Starting...
+2023-03-16 15:46:03,850 INFO c.z.h.HikariDataSource [main] - HikariPool-1 - Start completed.
+2023-03-16 15:46:04,050 INFO o.h.j.i.u.LogHelper [main] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2023-03-16 15:46:04,209 INFO o.h.Version [main] - HHH000412: Hibernate Core {5.3.10.Final}
+2023-03-16 15:46:04,214 INFO o.h.c.Environment [main] - HHH000206: hibernate.properties not found
+2023-03-16 15:46:04,860 INFO o.h.a.c.Version [main] - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2023-03-16 15:46:05,229 INFO o.h.d.Dialect [main] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-03-16 15:46:07,166 INFO o.s.o.j.LocalContainerEntityManagerFactoryBean [main] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-16 15:46:09,984 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration [main] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-16 15:46:10,113 INFO o.s.s.w.DefaultSecurityFilterChain [main] - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2259d54f, org.springframework.security.web.context.SecurityContextPersistenceFilter@77978658, org.springframework.security.web.header.HeaderWriterFilter@647ce968, org.springframework.web.filter.CorsFilter@1b82f62a, org.springframework.security.web.authentication.logout.LogoutFilter@1e75af65, com.example.demo.security.JWTAuthenticationFilter@67e21ea2, com.example.demo.security.JWTAuthorizationFilter@2184962c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5f8da82, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@204a02a4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d9bccfe, org.springframework.security.web.session.SessionManagementFilter@4bc9451b, org.springframework.security.web.access.ExceptionTranslationFilter@2cc9a948, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7aa1fb0e]
+2023-03-16 15:46:10,345 INFO o.s.s.c.ThreadPoolTaskExecutor [main] - Initializing ExecutorService 'applicationTaskExecutor'
+2023-03-16 15:46:10,659 INFO o.a.c.h.Http11NioProtocol [main] - Starting ProtocolHandler ["http-nio-8085"]
+2023-03-16 15:46:10,793 INFO o.s.b.w.e.t.TomcatWebServer [main] - Tomcat started on port(s): 8085 (http) with context path ''
+2023-03-16 15:46:10,797 INFO c.e.d.ECommerceApplication [main] - Started ECommerceApplication in 15.825 seconds (JVM running for 22.182)
+2023-03-16 15:46:42,956 INFO o.a.c.c.C.[.[.[/] [http-nio-8085-exec-2] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-16 15:46:42,956 INFO o.s.w.s.DispatcherServlet [http-nio-8085-exec-2] - Initializing Servlet 'dispatcherServlet'
+2023-03-16 15:46:42,966 INFO o.s.w.s.DispatcherServlet [http-nio-8085-exec-2] - Completed initialization in 9 ms
+2023-03-16 15:46:43,400 INFO c.e.d.c.UserController [http-nio-8085-exec-2] - A user named Sandra is created successfully!
+2023-03-16 15:46:50,563 INFO c.e.d.c.UserController [http-nio-8085-exec-3] - A user named Betty is created successfully!
+2023-03-16 15:46:59,701 INFO c.e.d.c.UserController [http-nio-8085-exec-4] - A user named Lissa is created successfully!
+2023-03-16 15:47:14,967 INFO c.e.d.c.UserController [http-nio-8085-exec-5] - A user named Cathy is created successfully!
+2023-03-16 15:47:21,368 INFO c.e.d.c.UserController [http-nio-8085-exec-6] - A user named Mary is created successfully!
+2023-03-16 15:47:27,524 INFO c.e.d.c.UserController [http-nio-8085-exec-7] - A user named Jerome is created successfully!
+2023-03-16 15:47:38,785 INFO c.e.d.c.UserController [http-nio-8085-exec-8] - A user named Lidiya is created successfully!
+2023-03-16 15:47:48,153 INFO c.e.d.c.UserController [http-nio-8085-exec-9] - A user named Thomas is created successfully!
+2023-03-16 15:47:55,475 INFO c.e.d.c.UserController [http-nio-8085-exec-10] - A user named Sisy is created successfully!
+2023-03-16 15:48:06,214 INFO c.e.d.c.UserController [http-nio-8085-exec-1] - A user named Gerogina is created successfully!
+2023-03-16 15:48:21,652 INFO c.e.d.c.UserController [http-nio-8085-exec-2] - A user named Anna is created successfully!
+2023-03-16 15:48:56,282 INFO o.s.s.c.ThreadPoolTaskExecutor [Thread-3] - Shutting down ExecutorService 'applicationTaskExecutor'
+2023-03-16 15:48:56,283 INFO o.s.o.j.LocalContainerEntityManagerFactoryBean [Thread-3] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-16 15:48:56,284 INFO c.z.h.HikariDataSource [Thread-3] - HikariPool-1 - Shutdown initiated...
+2023-03-16 15:48:56,359 INFO c.z.h.HikariDataSource [Thread-3] - HikariPool-1 - Shutdown completed.
