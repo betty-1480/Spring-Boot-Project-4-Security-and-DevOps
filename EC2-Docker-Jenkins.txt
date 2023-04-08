@@ -1,0 +1,28 @@
+Step 1: Install Docker
+Step 2: Write a Dockerfile
+Step 3: Build the Docker Image
+Step 4: Create and run a Container
+Step 5: Stop Container and Docker
+
+Step 6: Run a Container in an EC2 Instance (Linux)
+
+========================================================================
+
+EC2 - Launch an Instance
+==========================
+A. Create an AWS account
+B. Go to the EC2 Dashboard
+C. Start the Launch Instance Wizard
+	Step 1 - Choose an Amazon Machine Image (AMI)
+	Step 2 - Choose an Instance Type
+	Step 3 - Configure Instance Details
+	Step 4 - Add Storage
+	Step 5 - Add Tags
+	Step 6 - Configure Security Group
+	Step 7 - Review
+	Step 8 - Download Key Pair
+D. EC2 - Connect to Linux Instance
+E. Monitor your AWS Costs and Credits
+
+
+
