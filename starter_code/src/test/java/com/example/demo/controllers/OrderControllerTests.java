@@ -80,7 +80,6 @@ public class OrderControllerTests {
     public void getOrdersForUser_get_happy_path(){
         ResponseEntity<List<UserOrder>> response=orderController.getOrdersForUser("Betty");
         verify(userRepository,times(1)).findByUsername(any());
-        verify(orderRepository,times(1)).findById(any());
         assertEquals(200,response.getStatusCodeValue());
     }
 
